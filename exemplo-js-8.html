@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Dados - Isaac Newton</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sistema de Dados - Isaac Newton</h1>
+  <p>Insira um número:</p>
+  <input type="number" id="inputNumber" placeholder="Digite um número">
+  <button onclick="calculate()">Calcular</button>
+
+  <h2>Resultados:</h2>
+  <p>Valor absoluto: <span id="absoluteValue"></span></p>
+  <p>Parte inteira: <span id="integerPart"></span></p>
+  <p>Valor inteiro mais próximo: <span id="roundedValue"></span></p>
+  <p>Raiz quadrada: <span id="squareRoot"></span></p>
+  <p>Raiz cúbica: <span id="cubeRoot"></span></p>
+  <p>Elevado ao quadrado: <span id="squared"></span></p>
+  <p>Elevado ao cubo: <span id="cubed"></span></p>
+
+  <script src="script.js">
+
+  function calculate() {
+    const inputNumber = parseFloat(document.getElementById('inputNumber').value);
+  
+    if (isNaN(inputNumber)) {
+      alert('Por favor, insira um número válido.');
+      return;
+    }
+  
+    const absoluteValue = Math.abs(inputNumber);
+    const integerPart = Math.trunc(inputNumber);
+    const roundedValue = Math.round(inputNumber);
+    const squareRoot = Math.sqrt(inputNumber).toFixed(2);
+    const cubeRoot = Math.cbrt(inputNumber).toFixed(2);
+    const squared = Math.pow(inputNumber, 2);
+    const cubed = Math.pow(inputNumber, 3);
+  
+    document.getElementById('absoluteValue').textContent = absoluteValue;
+    document.getElementById('integerPart').textContent = integerPart;
+    document.getElementById('roundedValue').textContent = roundedValue;
+    document.getElementById('squareRoot').textContent = isNaN(squareRoot) ? 'N/A' : squareRoot;
+    document.getElementById('cubeRoot').textContent = cubeRoot;
+    document.getElementById('squared').textContent = squared;
+    document.getElementById('cubed').textContent = cubed;
+  }
+  </script>
+</body>
+</html>

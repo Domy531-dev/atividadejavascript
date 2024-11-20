@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mostrar Data e Hora</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exibir Data e Hora</h1>
+  <button onclick="mostrarDataHora()">Clique aqui</button>
+  <div class="output" id="output"></div>
+
+  <script>
+    function mostrarDataHora() {
+      const agora = new Date();
+      const dataFormatada = agora.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+      const horaFormatada = agora.toLocaleTimeString('pt-BR');
+      document.getElementById('output').innerHTML = `Data: ${dataFormatada}<br>Hora: ${horaFormatada}`;
+    }
+  </script>
+</body>
+</html>
